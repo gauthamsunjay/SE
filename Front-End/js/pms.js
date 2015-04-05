@@ -139,6 +139,21 @@ $(document).ready(function () {
     docReady();
 });
 
+//For uploading user data. New data must be stored, and the stored data must be displayed.
+function fileUpload() {
+    var selectedFile = document.getElementById('inputFile').files[0];
+    var node = document.createElement("LI");
+    var linkNode = document.createElement("A");
+    var textNode = document.createTextNode(selectedFile.name);
+    linkNode.setAttribute("href","#");
+    linkNode.setAttribute("download","");
+    linkNode.appendChild(textNode);
+    node.appendChild(linkNode);
+    document.getElementById('userDataList').appendChild(node);
+}
+
+
+
 
 function docReady() {
     //prevent # links from moving to top

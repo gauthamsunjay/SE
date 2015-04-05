@@ -66,7 +66,7 @@
                 </button>
                 <ul class="dropdown-menu">
                     <li><a href="ui.html">Profile</a></li>
-                    <li><a href="#">Notifications</a></li>
+                    <li><a href="notification.html">Notifications</a></li>
 		    <li><a href="login.html">Logout</a></li>
                 </ul>
             </div>
@@ -101,7 +101,7 @@
                     </div>
                     <ul class="nav nav-pills nav-stacked main-menu">
                         
-                        <li><a class="ajax-link" href="index.html"><i class="glyphicon glyphicon-home"></i><span> Home</span></a>
+                        <li><a class="ajax-link" href="index.html"><i class="glyphicon glyphicon-home"></i><span> Dashboard</span></a>
                         </li>
                         <li><a class="ajax-link" href="ui.html"><i class="glyphicon glyphicon-eye-open"></i><span> Profile</span></a>
                         </li>
@@ -132,57 +132,93 @@
 <div id="content" class="col-lg-10 col-sm-10">
             <!-- content starts -->
 
-<div class="row">
-    <div class="box col-md-12">
-        <div class="box-inner">
-            <div class="box-header well" data-original-title="">
-                <h2><i class="glyphicon glyphicon-edit"></i> Project Request Form</h2>
-            </div>
-            <div class="box-content">
-                <form role="form">
-                    <div class="form-group">
-                        <label for="Special topic">Special Topic</label>
-                        <input type="text" class="form-control"  placeholder="Enter subject">
-                    </div>
-                    <button type="submit" class="btn btn-default" align="right">Apply</button>
-					<hr>
-					<div class="form-group">
-                        <label for="Special topic">Non credit</label>
-                        <input type="text" class="form-control"  placeholder="Enter subject">
-                    </div>
-                    <button type="submit" class="btn btn-default" align="right">Apply</button>
-					<hr>
-					<div class="form-group">
-                        <label for="Special topic"><span>*</span>Final year</label>
-                        <input type="text" class="form-control"  placeholder="Enter subject">
-                    </div>
-                    <button type="submit" class="btn btn-default" align="right">Apply</button>
-                </form>
+<div class=" row">
+    <div class="col-md-3 col-sm-3 col-xs-6">
+        <a data-toggle="tooltip" title="Apply for new project." class="well top-block" href="form.html">
+            <i class="glyphicon glyphicon-plus blue"></i>
 
-            </div>
-        </div>
+            <div>New Project</div>
+        </a>
     </div>
-    <!--/span-->
 
-</div><!--/row-->
+    <div class="col-md-3 col-sm-3 col-xs-6">
+        <a data-toggle="tooltip" title="Forum for general discussions" class="well top-block" href="#">
+            <i class="glyphicon glyphicon-bullhorn red"></i>
+
+            <div>General Forum</div>
+        </a>
+    </div>
+
+    <div class="col-md-3 col-sm-3 col-xs-6">
+        <a data-toggle="tooltip" title="Forum for specific projects" class="well top-block" href="#">
+            <i class="glyphicon glyphicon-bullhorn green"></i>
+
+            <div>Projects Forum</div>
+        </a>
+    </div>
+
+    <div class="col-md-3 col-sm-3 col-xs-6">
+        <a data-toggle="tooltip" title="Github Repository for projects" class="well top-block" href="#">
+            <i class="glyphicon glyphicon-star yellow"></i>
+
+            <div>Github Repository</div>
+        </a>
+    </div>
 </div>
 
-    <!-- Ad, you can remove it -->
+
+<!-- File repository -->
+<div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well">
+                <h2><i class="glyphicon glyphicon-info-sign"></i> Information </h2>
+
+                <div class="box-icon">
+                    <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                            class="glyphicon glyphicon-chevron-up"></i></a>
+                    <a href="#" class="btn btn-close btn-round btn-default"><i
+                            class="glyphicon glyphicon-remove"></i></a>
+                </div>
+            </div>
+            <div class="box-content row">
+                <div class="col-lg-7 col-md-12">
+                    <h3><strong>Welcome FooUser123 </strong><br>
+                    <small>Project Repository Management System is an online platform for teachers-students to collaborate together and work on projects.</small></h3>
+
+                    <hr>
+                    Here you can find the data you have uploaded.
+                    <ul id="userDataList">
+                        <li><a href="userData/foo.txt" download>foo.txt</a></li>
+                        <li><a href="userData/bar.cpp" download>bar.cpp</a></li>
+                    </ul>
+                    <div class="form-group">
+                        <label for="inputFile">Upload Data</label>
+                        <input type="file" id="inputFile" onchange="fileUpload()">
+
+                    </div> 
+
+                    <p class="center-block download-buttons">
+
+                    </p>
+                </div>
+                
+        </div>
+    </div>
+
     <div class="row">
                
         </div>
 
-    
-    <!-- Ad ends -->
-
     <hr>
+    </div>
+<!--File Repository ends here --> 
 </div>
 
     <footer class="row">
         <p class="col-md-9 col-sm-9 col-xs-12 copyright">&copy; <a href="#" target="_blank">Copyright</a> 2015 - 2016</p>
     </footer>
 
-</div><!--/.fluid-container-->
+</div><!--fluid-container-->
 
 <!-- external javascript -->
 

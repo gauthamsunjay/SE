@@ -25,6 +25,8 @@
     <link href='css/jquery.iphone.toggle.css' rel='stylesheet'>
     <link href='css/uploadify.css' rel='stylesheet'>
     <link href='css/animate.min.css' rel='stylesheet'>
+    <link href='css/NewProfile.css' rel='stylesheet'>
+
 
     <!-- jQuery -->
     <script src="bower_components/jquery/jquery.min.js"></script>
@@ -47,6 +49,95 @@
         <!--/span-->
     </div><!--/row-->
 
+<!--This is For PopUP-->
+ <div id="light" class="white_content">
+    <form>
+                <div style="margin:10px;"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user red"></i></span>
+                    <input type="text" id="NewName"class="form-control" placeholder="Username"style="width: 300px;">
+                </div>
+                
+                <div style="margin:10px"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt red"></i></span>
+                    <input type="text" class="form-control" id="NewUSN" placeholder="USN"style="width: 300px;">
+                </div>
+                
+                <div style="margin:10px"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-phone red"></i></span>
+                    <input type="number" class="form-control" id="NewPhone" placeholder="PhoneNo"style="width: 300px;">
+                </div>
+
+                <div style="margin:10px"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope red"></i></span>
+                    <input type="email" class="form-control" id="NewEmail" placeholder="Email"style="width: 300px;">
+                </div>
+                <div style="margin:10px"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-home red"></i></span>
+                    <input type="text" class="form-control" id="NewAddress" placeholder="Address"style="width: 300px;">
+                </div>
+
+                <div class="control-group">
+                        <label class="control-label" for="selectSem">Enter Semester</label>
+
+                <div class="controls">
+                        <select id="selectSem" data-rel="chosen">
+                <option>-</option>
+                            <option>II</option>
+                            <option>IV</option>
+                            <option>VI</option>
+                            <option>VIII</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                 <div class="control-group">
+                        <label class="control-label" for="selectDep">Select Department</label>
+
+                <div class="controls">
+                        <select id="selectDep" data-rel="chosen">
+                <option>-</option>
+                            <option>CSE</option>
+                            <option>ISE</option>
+                            <option>ECE</option>
+                            <option>TCE</option>
+                            <option>BT</option>
+
+                        </select>
+                    </div>
+                </div>
+
+               
+                <div style="margin:10px"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock red"></i></span>
+                    <input type="password" class="form-control" id="NewPassword" placeholder="Password"style="width: 300px;">
+                </div>
+
+                <div style="margin:10px"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock red"></i></span>
+                    <input type="password" class="form-control" id="NewPassword2" placeholder="Confirm Password"style="width: 300px;">
+                </div>
+
+                <div class="form-group">
+                        <label for="exampleInputFile">Enter CV (optional)</label>
+                        <input type="file" id="exampleInputFile">
+
+                    <hr>
+                </div> 
+                <br/>
+                <a class="btn btn-danger" id="Cancel" href="#" style="margin:3px;float:right"><i class="glyphicon glyphicon-trash"></i> Cancel</a>
+                <span id="Save"><a class="btn btn-success" id="Save"href="index.html"style="margin:3px;float:right"><i class=" glyphicon glyphicon-user"></i> Create</a></span>
+                
+    </form>
+ </div>
+
+
+<!--popup ends-->
+
+
+
+
+
     <div class="row">
         <div class="well col-md-5 center login-box">
             <div class="alert alert-info">
@@ -65,6 +156,13 @@
                         <input type="password" class="form-control" placeholder="Password">
                     </div>
                     <div class="clearfix"></div>
+                    
+                    <div >
+                    <small>
+                        <label><a href="#" id="createAcc" > Create New Account</a></label>
+                    </small>
+                    </div>
+
 
                     <div class="input-prepend">
                         <label class="remember" for="remember"><input type="checkbox" id="remember"> Remember me</label>
@@ -119,6 +217,9 @@
 <script src="js/jquery.history.js"></script>
 <!-- application script for demo -->
 <script src="js/pms.js"></script>
+<!-- script for New profile -->
+<script src="js/NewProfile.js"></script>
+
 
 
 </body>
