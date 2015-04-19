@@ -18,12 +18,6 @@ $(document).ready(function () {
 
     var $sidebarNav = $('.sidebar-nav');
 
-//Gautham- Make changes here for validation
-	 function loginCheck() {
-		x=document.getElementByid("inputForm");
-        	alert(x.value);
-		return false;
-    }
 
 
     // Hide responsive navbar on clicking outside
@@ -461,3 +455,4 @@ $.extend($.fn.dataTableExt.oPagination, {
         }
     }
 });
+

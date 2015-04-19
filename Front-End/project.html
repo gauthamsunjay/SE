@@ -33,7 +33,7 @@
 
 </head>
 
-<body onload="popup('popUpDiv')">
+<body>
     <!-- topbar starts -->
     <div class="navbar navbar-default" role="navigation">
 
@@ -132,47 +132,11 @@
 <div id="content" class="col-lg-10 col-sm-10">
             <!-- content starts -->
 
-<div class=" row">
-    <div class="col-md-3 col-sm-3 col-xs-6">
-        <a data-toggle="tooltip" title="Apply for new project." class="well top-block" href="form.html">
-            <i class="glyphicon glyphicon-plus blue"></i>
-
-            <div>New Project</div>
-        </a>
-    </div>
-
-    <div class="col-md-3 col-sm-3 col-xs-6">
-        <a data-toggle="tooltip" title="Forum for general discussions" class="well top-block" href="#">
-            <i class="glyphicon glyphicon-bullhorn red"></i>
-
-            <div>General Forum</div>
-        </a>
-    </div>
-
-    <div class="col-md-3 col-sm-3 col-xs-6">
-        <a data-toggle="tooltip" title="Forum for specific projects" class="well top-block" href="#">
-            <i class="glyphicon glyphicon-bullhorn green"></i>
-
-            <div>Projects Forum</div>
-        </a>
-    </div>
-
-    <div class="col-md-3 col-sm-3 col-xs-6">
-        <a data-toggle="tooltip" title="Github Repository for projects" class="well top-block" href="#">
-            <i class="glyphicon glyphicon-star yellow"></i>
-
-            <div>Github Repository</div>
-        </a>
-    </div>
-</div>
-
-
-<!-- File repository -->
+<!-- Project information -->
 <div class="box col-md-12">
         <div class="box-inner">
             <div class="box-header well">
-                <h2><i class="glyphicon glyphicon-info-sign"></i> Information </h2>
-
+                <h2><i class="glyphicon glyphicon-info-sign"></i> Project Info </h2>
                 <div class="box-icon">
                     <a href="#" class="btn btn-minimize btn-round btn-default"><i
                             class="glyphicon glyphicon-chevron-up"></i></a>
@@ -182,20 +146,20 @@
             </div>
             <div class="box-content row">
                 <div class="col-lg-7 col-md-12">
-                    <h3><strong>Welcome FooUser123 </strong><br>
-                    <small>Project Repository Management System is an online platform for teachers-students to collaborate together and work on projects.</small></h3>
+
+                <h3><strong id = "projectTitle">Project Title </strong><br>
+                    <small id= "projectSynopsis">Project Synopsis goes here.</small></h3>
 
                     <hr>
-                    Here you can find the data you have uploaded.
-                    <ul id="userDataList">
-                        <li><a href="userData/foo.txt" download>foo.txt</a></li>
-                        <li><a href="userData/bar.cpp" download>bar.cpp</a></li>
+                    Project Members:
+                    <ul id="projectMembers">
+                        <li>*Add project memebers here*</li>
                     </ul>
-                    <div class="form-group">
-                        <label for="inputFile">Upload Data</label>
-                        <input type="file" id="inputFile" onchange="fileUpload()" style="color:white" >
-
-                    </div> 
+                    <hr>
+                    Project Mentors:
+                    <ul id="projectMentors">
+                        <li>*Add project mentors here*</li>
+                    </ul>
 
                     <p class="center-block download-buttons">
 
@@ -219,9 +183,6 @@
     </footer>
 
 </div><!--fluid-container-->
-
-<div id="blanket" style="display:none"></div>
-<div id="popUpDiv" style="display:none">
 
 <!-- external javascript -->
 
@@ -257,8 +218,6 @@
 <script src="js/jquery.history.js"></script>
 <!-- application script for demo -->
 <script src="js/pms.js"></script>
-<!-- Does anyone even read this? -->
-<script src="js/popup.js"></script>
 
 
 </body>
