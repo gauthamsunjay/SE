@@ -237,6 +237,14 @@ ul.dashboard-list li a span {
     border-radius: 50%;
 }
 
+.student-hidden-form {
+    display: none;
+}
+
+.teacher-hidden-form {
+    display: none;
+}
+
 .thumbnail {
     background-color: white;
     z-index: 2;
