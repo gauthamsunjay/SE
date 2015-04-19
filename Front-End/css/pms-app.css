@@ -201,6 +201,15 @@ select {
     padding-top: 4px;
 }
 
+.controls {
+    color:black;
+    width:100px;
+}
+
+.control-option {
+    width:100px;
+}
+
 ul.dashboard-list li {
     padding: 7px 0;
     list-style: none;
@@ -235,6 +244,12 @@ ul.dashboard-list li a span {
     margin-right: 15px;
     border: 1px solid #EBEBEB;
     border-radius: 50%;
+}
+
+
+.form-control {
+
+    width : 150px;
 }
 
 .student-hidden-form {
