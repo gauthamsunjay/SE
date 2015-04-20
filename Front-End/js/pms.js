@@ -56,6 +56,22 @@ $(document).ready(function () {
 
 
 	
+    $("#Pimage").on("mouseover",function (event) {
+       $( "#Pimage" ).css( "opacity", "0.5" );
+        $("#Pimage").on("click",function (event)
+        {
+          $("#my_file").click();
+
+        });
+       // glyphicon glyphicon-pencil 
+    });
+
+   $("#Pimage").on("mouseout",function (event) {
+       $( "#Pimage" ).css( "opacity", "1" );
+       //$( "#Pimage" ).css( "content", "Edit Image" );
+
+       // glyphicon glyphicon-pencil 
+    });
 
 
     //ajax menu checkbox
@@ -145,8 +161,6 @@ function fileUpload() {
     node.appendChild(linkNode);
     document.getElementById('userDataList').appendChild(node);
 }
-
-
 
 
 function docReady() {
