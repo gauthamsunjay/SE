@@ -252,6 +252,12 @@ ul.dashboard-list li a span {
     width : 150px;
 }
 
+.form-control-area {
+
+    width : 300px;
+    height : 150px;
+}
+
 .student-hidden-form {
     display: none;
 }
