@@ -142,7 +142,7 @@
     </div>
 
     <div class="col-md-3 col-sm-3 col-xs-6">
-        <a data-toggle="tooltip" title="Forum for general discussions" class="well top-block" href="#">
+        <a data-toggle="tooltip" title="Forum for general discussions" class="well top-block" href="ProjectForum.html">
             <i class="glyphicon glyphicon-bullhorn red"></i>
 
             <div>General Forum</div>
@@ -150,7 +150,7 @@
     </div>
 
     <div class="col-md-3 col-sm-3 col-xs-6">
-        <a data-toggle="tooltip" title="Forum for specific projects" class="well top-block" href="#">
+        <a data-toggle="tooltip" title="Forum for specific projects" class="well btn-setting top-block" href="#">
             <i class="glyphicon glyphicon-bullhorn green"></i>
 
             <div>Projects Forum</div>
@@ -165,6 +165,56 @@
         </a>
     </div>
 </div>
+
+<!--Project Pop-up-->
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+         
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h3>Current Project List<br>
+            <small>Select project</small>           
+            </h3>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
+                        <thead>
+                            <tr>
+                                <th>Project Name</th>
+                                <th>Mentor/Guide</th>
+                               <th>Subject/Domain</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><a href="ProjectForum.html" class="btn btn-round btn-default">Project Management System</a></td>
+                                <td class="center"><a href="#">Prof. Phalachandra</a></td>
+                                <td class="center">Software Engineering</td>
+                            </tr>
+                            <tr>
+                                <td><a href="ProjectForum.html" class="btn btn-round btn-default">Project Baz</a></td>
+                                <td class="center"><a href="#">Prof. Bar</a></td>
+                                <td class="center">CCBD</td>
+                            </tr>
+                            </tbody>
+                    </table>
+
+
+
+                </div>
+                <div class="modal-footer">
+
+                    <a href="#" class="btn btn-primary btn-lg" data-dismiss="modal"><i
+                                class="glyphicon glyphicon-chevron-left glyphicon-white"></i>Close</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--Project Pop-up ends here-->
+
 
 
 <!-- File repository -->

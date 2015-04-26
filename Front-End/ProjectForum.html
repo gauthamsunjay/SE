@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <title>Project Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Project management system ">
+    <meta name="author" content="-">
+
+
+    <!-- The styles -->
+    <link id="bs-css" href="css/bootstrap-cerulean.min.css" rel="stylesheet">
+
+    <link href="css/pms-app.css" rel="stylesheet">
+    <link href='bower_components/fullcalendar/dist/fullcalendar.css' rel='stylesheet'>
+    <link href='bower_components/fullcalendar/dist/fullcalendar.print.css' rel='stylesheet' media='print'>
+    <link href='bower_components/chosen/chosen.min.css' rel='stylesheet'>
+    <link href='bower_components/colorbox/example3/colorbox.css' rel='stylesheet'>
+    <link href='bower_components/responsive-tables/responsive-tables.css' rel='stylesheet'>
+    <link href='bower_components/bootstrap-tour/build/css/bootstrap-tour.min.css' rel='stylesheet'>
+    <link href='css/jquery.noty.css' rel='stylesheet'>
+    <link href='css/jquery-ui-1.8.21.custom.css' rel='stylesheet'>
+    <link href='css/noty_theme_default.css' rel='stylesheet'>
+    <link href='css/elfinder.min.css' rel='stylesheet'>
+    <link href='css/elfinder.theme.css' rel='stylesheet'>
+    <link href='css/jquery.iphone.toggle.css' rel='stylesheet'>
+    <link href='css/uploadify.css' rel='stylesheet'>
+    <link href='css/animate.min.css' rel='stylesheet'>
+	 <link href='css/addComment.css' rel='stylesheet'>
+    <!-- jQuery -->
+    <script src="bower_components/jquery/jquery.min.js"></script>
+
+    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- The fav icon -->
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+</head>
+
+<body>
+    <div id="light" class="thread_box">
+        
+            <div class="thread_title"> 
+                <div class="box-header well" data-original-title="">
+                    <h2><i class="glyphicon glyphicon-plus"></i>New Thread</h2>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+            </div>
+            <div class="white_content">
+			<form>
+
+                <div style="margin:10px;"class="input-group col-md-4">
+                    <input type="text" id="NewSubject"class="form-control" placeholder="Subject" style="width: 590px; height=""" required></input>
+                </div>
+		        <div style="margin:10px;"class="input-group col-md-4">
+                    <textarea id="NewComment"class="form-control" placeholder="Message"style="width: 590px;" rows="10" required></textarea>
+                </div>
+				<br/>
+				<a class="btn btn-danger" id="Cancel" href="#" style="margin:3px;float:right"><i class="glyphicon glyphicon-trash"></i> Cancel</a>
+				<span id="Add"><a class="btn btn-success" id="Save"href="#"style="margin:3px;float:right"><i class="glyphicon glyphicon-shopping-cart"></i> Add</a></span>
+                
+			</form>
+		</div>
+    </div>
+    <!-- topbar starts -->
+ <div class="navbar navbar-default" role="navigation">
+
+        <div class="navbar-inner">
+            <button type="button" class="navbar-toggle pull-left animated flip">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"> <img alt="PMS Logo" src="img/logo2.png" class="hidden-xs"/>
+                <span>Project</span></a>
+
+            <!-- user dropdown starts -->
+            <div class="btn-group pull-right">
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs"> Student</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="ui.html">Profile</a></li>
+                    <li><a href="notification.html">Notifications</a></li>
+		    <li><a href="login.html">Logout</a></li>
+                </ul>
+            </div>
+            <!-- user dropdown ends -->
+
+            <!-- theme selector starts -->
+            <div class="btn-group pull-right theme-container animated tada" style="display:none">
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <i class="glyphicon glyphicon-tint"></i><span
+                        class="hidden-sm hidden-xs"> Change Theme / Skin</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" id="themes">
+                    <li><a data-value="slate" href="#"><i class="whitespace"></i> Slate</a></li>
+                </ul>
+            </div>
+            <!-- theme selector ends -->
+
+        </div>
+    </div>
+    <!-- topbar ends -->
+<div class="ch-container">
+    <div class="row">
+        
+        <!-- left menu starts -->
+          <div class="col-sm-2 col-lg-2">
+            <div class="sidebar-nav">
+                <div class="nav-canvas">
+                    <div class="nav-sm nav nav-stacked">
+
+                    </div>
+                    <ul class="nav nav-pills nav-stacked main-menu">
+                        
+                        <li><a class="ajax-link" href="index.html"><i class="glyphicon glyphicon-home"></i><span> Dashboard</span></a>
+                        </li>
+                        <li><a class="ajax-link" href="ui.html"><i class="glyphicon glyphicon-eye-open"></i><span> Profile</span></a>
+                        </li>
+                        
+                        <li><a class="ajax-link" href="table.html"><i
+                                    class="glyphicon glyphicon-align-justify"></i><span> projects</span></a></li>
+						<li><a class="ajax-link" href="tour.html"><i
+                                    class="glyphicon glyphicon-th"></i><span> Current Project</span></a></li>
+ 
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--/span-->
+        <!-- left menu ends -->
+
+        <noscript>
+            <div class="alert alert-block col-md-12">
+                <h4 class="alert-heading">Warning!</h4>
+
+                <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a>
+                    enabled to use this site.</p>
+            </div>
+        </noscript>
+
+        <div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+        
+
+    <div class="row">
+        <div class="box col-md-12">
+            <div class="box-inner">
+                <div class="box-header well" data-original-title="">
+                    <h2><i class="glyphicon glyphicon-bullhorn red"></i>&nbsp&nbsp&nbsp&nbsp&nbspGeneral Forum</h2>
+
+                    <div class="box-icon">
+						<span id="Edit">
+							<a href="#" class="btn btn-setting btn-round btn-default">
+								<i class="glyphicon glyphicon-edit"></i></i>
+							</a></span>
+                        <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                                class="glyphicon glyphicon-chevron-up"></i></a>
+                        <a href="#" class="btn btn-close btn-round btn-default"><i
+                                class="glyphicon glyphicon-remove"></i></a>
+                    </div>
+                </div>
+                <div class="box-content" id="CommentBox">
+				
+				    
+                    <table class="table table-striped table-bordered responsive commentTable"id="commentTable"name="commenttable">
+                        <tbody>
+                        <tr>
+                            <td width="100%" class="center" >
+                                <span><a href="#" id="subTitle"></a></span>
+                                    <span id="NameAndDate" style="float:right;">Admin ,4.07pm 18 APR 2014
+                                    </span>
+                                    
+                            </td>
+                       </tr>
+						<tr>
+                            <td width="60%" rowspan="3" class="center" id="contentComment">
+							<div id="member1" style="padding:20px;padding-left:60px;"><h4>Rules</h4><p>1.No flooding or spamming</p><p>2.No harassing other users</p><p>3.Racism of any type not allowed</p><p>4.Outside Topic (Like Sports,Entertainment) Not allowed</p> </div>
+							</td>
+                        </tr>
+						
+                        </tbody>
+                    </table>
+				<!--	<div id="commentBox">
+						<div id ="commentBoxHeader">
+							<span id="username">Skipper</span>&nbsp <span id="date" style="align: right;">4.07pm, 18 APR 2014</span>
+						</div>
+						
+						<div id="commentBoxContent">
+							<span id="comment">Hello Just typing in forum Hello Just typing in forum Hello Just typing in forum Hello Just typing in forum </span>
+						</div>
+					</div>-->
+					
+                </div>
+            </div>
+        </div>
+        <!--/span-->
+
+    </div><!--/row-->
+
+    <!-- content ends -->
+    </div><!--/#content.col-md-0-->
+</div><!--/fluid-row-->
+
+    <!-- Ad, you can remove it -->
+        <div class="row">
+               
+        </div>
+
+    
+    <!-- Ad ends -->
+
+    <hr>
+</div>
+
+    <footer class="row">
+        <p class="col-md-9 col-sm-9 col-xs-12 copyright">&copy; <a href="#" target="_blank">Copyright</a> 2015 - 2016</p>
+    </footer>
+
+
+</div><!--/.fluid-container-->
+
+<!-- external javascript -->
+
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- library for cookie management -->
+<script src="js/jquery.cookie.js"></script>
+<!-- calender plugin -->
+<script src='bower_components/moment/min/moment.min.js'></script>
+<script src='bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
+<!-- data table plugin -->
+<script src='js/jquery.dataTables.min.js'></script>
+<!-- draggable option -->
+<script src='js/jquery-ui.min.js'></script>
+
+
+<!-- select or dropdown enhancer -->
+<script src="bower_components/chosen/chosen.jquery.min.js"></script>
+<!-- plugin for gallery image view -->
+<script src="bower_components/colorbox/jquery.colorbox-min.js"></script>
+<!-- notification plugin -->
+<script src="js/jquery.noty.js"></script>
+<!-- library for making tables responsive -->
+<script src="bower_components/responsive-tables/responsive-tables.js"></script>
+<!-- tour plugin -->
+<script src="bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+<!-- star rating plugin -->
+<script src="js/jquery.raty.min.js"></script>
+<!-- for iOS style toggle switch -->
+<script src="js/jquery.iphone.toggle.js"></script>
+<!-- autogrowing textarea plugin -->
+<script src="js/jquery.autogrow-textarea.js"></script>
+<!-- multiple file upload plugin -->
+<script src="js/jquery.uploadify-3.1.min.js"></script>
+<!-- history.js for cross-browser state change on ajax -->
+<script src="js/jquery.history.js"></script>
+<!-- application script for demo -->
+<script src="js/pms.js"></script>
+
+<script src="js/addComment.js"></script>
+</body>
+</html>

@@ -645,7 +645,7 @@ ul.github-buttons li {
 
     ul.main-menu a:hover, .nav-sm a:hover {
         background: none !important;
-        color: grey;
+        color: gray;
     }
 
     .navbar-default .navbar-toggle:focus {
