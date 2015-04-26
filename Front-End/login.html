@@ -36,9 +36,24 @@
     <!-- The fav icon -->
     <link rel="shortcut icon" href="img/favicon.ico">
 
+    <script>
+    function init()
+    {
+        div=document.getElementById("guest");
+        div.style.position="fixed";
+        div.style.height="20px";
+        div.style.width="20px";
+        div.style.right= "50px";
+        div.style.top="10px";
+    }
+    </script>
+
 </head>
 
-<body>
+<body onload="init()" background="img/bg.jpg">
+<div id="guest" >
+    <a href="#"><img src="img/guest.png" alt="Can't Display" height="60px" width="60px"></a>
+</div>
 <div class="ch-container">
     <div class="row">
         
