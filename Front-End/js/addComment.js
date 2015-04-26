@@ -6,6 +6,7 @@ $("#light").draggable();
 
 });
 count=1;
+count1=1;
 $("#Add").click(function(){
 
 
@@ -50,3 +51,35 @@ document.getElementById("NewSubject").value="";
 document.getElementById('light').style.display='none';
 });
 
+
+$("#replyPost").click(function(){
+	
+	newReply = document.getElementById("NewReply");
+	newForm = document.getElementById("replyForm");
+
+
+	reply=newReply.value;
+	CommentDiv=document.getElementById("ReplyBox");
+
+	table=document.getElementById("replyTable");
+
+	newtable="replyTable"+count1;
+	newcomtable=table.cloneNode(true);
+	newcomtable.id=newtable;
+	count1++;
+
+	NameAndDate=document.getElementById("NameAndDate1");
+	contentComment=document.getElementById("contentReply");
+
+
+	userName="abc";//get from dataBase
+	NameAndDate.innerHTML=userName+" , "+Date();
+
+	contentComment.innerHTML=newReply.value;
+
+	CommentDiv.insertBefore(newcomtable,replyForm);
+	newcomtable.style.visibility="show";
+
+	newReply.value=" ";
+
+});
