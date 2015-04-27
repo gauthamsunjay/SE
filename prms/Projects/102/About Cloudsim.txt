@@ -1,0 +1,8 @@
+1. Distributing requests for  new VM across data centers -> DatacenterBroker
+2. Allocating application requests (cloudlets) to VMs -> DatacenterBroker
+3. Placing VMs on physical hosts inside a data center -> VmAllocationPolicy
+4. Scheduling VMs on a host -> VmScheduler
+5. Scheduling cloudlets within a VM -> CloudletScheduler
+
+VmAllocationPolicy is responsible for finding a host to place a new VM on using the allocateHostForVm method. Another method, optimizeAllocation, is responsible for adapting the current placement of VMs. The optimizeAllocation method can be called from the updateCloudletProcessing method of the Datacenter class (currently, this is only done for PowerDatacenter, but you can easily add this to the Datacenter class by modifying or extending it). The optimizeAllocation method accepts a list of VMs as an argument, and is supposed to return a migration map - a list of mappings between VMs selected for migration and destination hosts. Please see the subclasses of VmAllocationPolicy included in the power package as examples. Please also have a look at the updateCloudletProcessing method of the Datacenter class for an example of initiating VM migrations according to the received migration map.
+

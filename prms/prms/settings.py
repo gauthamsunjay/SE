@@ -36,7 +36,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'student'
+    'student',
+    'professor',
+	'repo',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -60,11 +62,11 @@ WSGI_APPLICATION = 'prms.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'se',                      
+        'NAME': 'se3',                      
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': 'localhost',
-        'PORT': ''
+        'PORT': '5432'
     }
 }
 
@@ -81,11 +83,28 @@ USE_L10N = True
 
 USE_TZ = True
 
+FORUM_BASE = '/forum'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
 
+TEMPLATE_DIRS = (
+        os.path.join(os.path.dirname(BASE_DIR), "static", "templates"),
+ 
+    )
+
+TEMPLATE_CONTEXT_PROCESSOR = (
+        'django.core.context_processors.media',
+        'django.core.context_processors.csrf',
+
+    )
+
 if DEBUG:
+    MEDIA_URL = "/media/"
     STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),STATIC_URL,"static-only")
+    MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),"static","media")
+    STATICFILES_DIRS = (
+					os.path.join(os.path.dirname(BASE_DIR),"static","static"),
+)

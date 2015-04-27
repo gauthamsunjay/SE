@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <title>Portal Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Project management system ">
+    <meta name="author" content="-">
+
+	<!-- jQuery -->
+    <script src="/static/bower_components/jquery/jquery.min.js"></script>
+
+    <!-- The styles -->
+    <link id="bs-css" href="/static/css/bootstrap-cerulean.min.css" rel="stylesheet">
+
+    <link href="/static/css/pms-app.css" rel="stylesheet">
+    <link href='/static/bower_components/fullcalendar/dist/fullcalendar.css' rel='stylesheet'>
+    <link href='/static/bower_components/fullcalendar/dist/fullcalendar.print.css' rel='stylesheet' media='print'>
+    <link href='/static/bower_components/chosen/chosen.min.css' rel='stylesheet'>
+    <link href='/static/bower_components/colorbox/example3/colorbox.css' rel='stylesheet'>
+    <link href='/static/bower_components/responsive-tables/responsive-tables.css' rel='stylesheet'>
+    <link href='/static/bower_components/bootstrap-tour/build/css/bootstrap-tour.min.css' rel='stylesheet'>
+    <link href='/static/css/jquery.noty.css' rel='stylesheet'>
+    <link href='/static/css/noty_theme_default.css' rel='stylesheet'>
+    <link href='/static/css/elfinder.min.css' rel='stylesheet'>
+    <link href='/static/css/elfinder.theme.css' rel='stylesheet'>
+    <link href='/static/css/jquery.iphone.toggle.css' rel='stylesheet'>
+    <link href='/static/css/uploadify.css' rel='stylesheet'>
+    <link href='/static/css/animate.min.css' rel='stylesheet'>
+    <link href='/static/css/NewProfile.css' rel='stylesheet'>
+
+
+    
+
+
+    <!-- The fav icon -->
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+
+    <script>
+    function init()
+    {
+        div=document.getElementById("guest");
+        div.style.position="fixed";
+        div.style.height="20px";
+        div.style.width="20px";
+        div.style.right= "50px";
+        div.style.top="10px";
+    }
+    </script>
+
+</head>
+
+<body onload="init()">
+<div id="guest" >
+    <img src="/static/img/guest.png" alt="Can't Display" height="60px" width="60px">
+    <a href="{%url 'guest'%}">Click here to view projects.</a>
+</div>
+
+<div class="ch-container">
+    <div class="row">
+        
+    <div class="row">
+        <div class="col-md-12 center login-header">
+            <h2>Welcome</h2>
+        </div>
+        <!--/span-->
+    </div><!--/row-->
+
+<!--This is For PopUP-->
+ <div id="light" class="white_content">
+
+    <span class="fc-header-title">
+
+            <h4>Create New Account</h4>
+    </span>
+    <hr>
+
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                        Teacher
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                        Student
+                    </label>
+                </div>
+                <div class="radio disabled">
+                    <label title = "Remove if not needed" >
+                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+                        Guest
+                    </label>
+                </div>
+    <hr>
+        <div class="student-hidden-form" id="student-form">
+		<form action = "{% url 'verify-signup-stud' %}" method = "post">
+			{% csrf_token %}
+                <div style="margin:10px;"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user red"></i></span>
+                    <input type="text" name="name" id="name"class="form-control" placeholder="Username"style="width: 300px;">
+                </div>
+                
+                <div style="margin:10px"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt red"></i></span>
+                    <input type="text" class="form-control" name="usn" id="usn" placeholder="USN"style="width: 300px;">
+                </div>
+                
+                <div style="margin:10px"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-phone red"></i></span>
+                    <input type="number" class="form-control" name="phone" id="phone" placeholder="PhoneNo"style="width: 300px;">
+                </div>
+
+                <div style="margin:10px"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope red"></i></span>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email"style="width: 300px;">
+                </div>
+                <!--<div style="margin:10px"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-home red"></i></span>
+                    <input type="text" class="form-control" id="NewAddress" placeholder="Address"style="width: 300px;">
+                </div>-->
+
+                <div class="control-group">
+                        <label class="control-label" for="selectSem">Enter Semester</label>
+
+                <div class="controls">
+                        <input type="number" name="sem" id="sem" min="1" max="8">
+                    </div>
+                </div>
+
+
+                 <div class="control-group">
+                        <label class="control-label" for="selectDep">Select Department</label>
+
+                <div class="controls">
+                        <input type="text" name="dept" id="dept">
+                    </div>
+                </div>
+
+               
+                <div style="margin:10px"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock red"></i></span>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password"style="width: 300px;">
+                </div>
+
+                <!--<div style="margin:10px"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock red"></i></span>
+                    <input type="password" class="form-control" id="NewPassword2" placeholder="Confirm Password"style="width: 300px;">
+                </div>-->
+
+                <div class="form-group">
+                        <label for="exampleInputFile">Submit CV</label>
+                        <input type="file" name="exampleInputFile" id="exampleInputFile">
+
+                    <hr>
+                </div> 
+                <br/>
+                <a class="btn btn-danger" id="Cancel" href="#" style="margin:3px;float:right"><i class="glyphicon glyphicon-trash"></i> Cancel</a>
+                <span id="Save">
+				<input type="submit" name="submit" id="submit" value="Create">
+		</form>
+        </div>  
+
+        <div class="teacher-hidden-form" id="teacher-form">
+		<form action = "{% url 'verify-signup-teach' %}" method = "post">
+			{% csrf_token %}
+                <div style="margin:10px;"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user red"></i></span>
+                    <input type="text" name="name" id="name"class="form-control" placeholder="Username"style="width: 300px;">
+                </div>
+                
+                <div style="margin:10px"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt red"></i></span>
+                    <input type="text" class="form-control" name="id" id="id" placeholder="EMPI"style="width: 300px;">
+                </div>
+                
+                <!--<div style="margin:10px"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase red"></i></span>
+                    <input type="text" class="form-control" id="NewQualification" placeholder="Qualification" style="width: 300px;">
+                </div>-->
+
+                <div style="margin:10px"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-phone red"></i></span>
+                    <input type="number" class="form-control" name="phone" id="phone" placeholder="PhoneNo"style="width: 300px;">
+                </div>
+
+                <div style="margin:10px"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope red"></i></span>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email"style="width: 300px;">
+                </div>
+                <!--<div style="margin:10px"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-home red"></i></span>
+                    <input type="text" class="form-control" id="NewTAddress" placeholder="Address"style="width: 300px;">
+                </div>-->
+
+
+                 <div class="control-group">
+                        <label class="control-label" for="selectDep">Select Department</label>
+
+                <div class="controls">
+                        <input type="text" name="departmentName" id="departmentName">
+                    </div>
+                </div>
+
+               
+				<div style="margin:10px"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock red"></i></span>
+                    <input type="domainName" class="form-control" name="domainName" id="domainName" placeholder="domainName"style="width: 300px;">
+                </div>
+
+
+                <div style="margin:10px"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock red"></i></span>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password"style="width: 300px;">
+                </div>
+
+                <!--<div style="margin:10px"class="input-group col-md-4">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock red"></i></span>
+                    <input type="password" class="form-control" id="NewTPassword2" placeholder="Confirm Password"style="width: 300px;">
+                </div>-->
+
+                <div class="form-group">
+                        <label for="exampleInputFile2">Submit CV (optional)</label>
+                        <input type="file" id="exampleInputFile2">
+
+                    <hr>
+                </div> 
+                <br/>
+                <a class="btn btn-danger" id="Cancel2" href="#" style="margin:3px;float:right"><i class="glyphicon glyphicon-trash"></i> Cancel</a>
+                <span id="Save2"><input type="submit" name="submit" id="submit" value="Create">
+        </div>        
+
+    </form>
+ </div>
+
+
+<!--popup ends-->
+
+
+
+    <div class="row">
+        <div class="well col-md-5 center login-box">
+            <div class="alert alert-info">
+                {%if messages%}
+                    {%for message in messages%}
+                        {{message}}
+                    {%endfor%}
+                {%else%}
+                    Please login with your Username and Password.
+                {%endif%}
+            </div>
+            <form id="inputForm" class="form-horizontal" onsubmit= "return loginCheck()" action="{% url 'verify' %}" method="post">
+				{% csrf_token %}
+                <fieldset>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user red"></i></span>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                    </div>
+                    <div class="clearfix"></div><br>
+
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock red"></i></span>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    </div>
+                    <div class="clearfix"></div>
+                    
+                    <div >
+                    <small>
+                        <label><a href="#" id="createAcc" > Create New Account</a></label>
+                    </small>
+                    </div>
+
+
+                    <div class="input-prepend">
+                        <label class="remember" for="remember"><input type="checkbox" id="remember"> Remember me</label>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <p class="center col-md-5">
+            <input type="submit" class="btn btn-primary" value="Login" onclick= "loginCheck()">
+                    </p>
+                </fieldset>
+            </form>
+        </div>
+        <!--/span-->
+    </div><!--/row-->
+</div><!--/fluid-row-->
+
+</div><!--/.fluid-container-->
+
+<!-- external javascript -->
+
+<script src="/static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- library for cookie management -->
+<script src="/static/js/jquery.cookie.js"></script>
+<!-- calender plugin -->
+<script src='/static/bower_components/moment/min/moment.min.js'></script>
+<script src='/static/bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
+<!-- data table plugin -->
+<script src='/static/js/jquery.dataTables.min.js'></script>
+
+<!-- select or dropdown enhancer -->
+<script src="/static/bower_components/chosen/chosen.jquery.min.js"></script>
+<!-- plugin for gallery image view -->
+<script src="/static/bower_components/colorbox/jquery.colorbox-min.js"></script>
+<!-- notification plugin -->
+<script src="/static/js/jquery.noty.js"></script>
+<!-- library for making tables responsive -->
+<script src="/static/bower_components/responsive-tables/responsive-tables.js"></script>
+<!-- tour plugin -->
+<script src="/static/bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+<!-- star rating plugin -->
+<script src="/static/js/jquery.raty.min.js"></script>
+
+
+<!-- for iOS style toggle switch -->
+<script src="/static/js/jquery.iphone.toggle.js"></script>
+<!-- autogrowing textarea plugin -->
+<script src="/static/js/jquery.autogrow-textarea.js"></script>
+<!-- multiple file upload plugin -->
+<script src="/static/js/jquery.uploadify-3.1.min.js"></script>
+<!-- history.js for cross-browser state change on ajax -->
+<script src="/static/js/jquery.history.js"></script>
+<!-- application script for demo -->
+<script src="/static/js/pms.js"></script>
+<!-- script for New profile -->
+<script src="/static/js/NewProfile.js"></script>
+
+
+
+</body>
+</html>

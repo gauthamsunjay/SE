@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Project Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A Project Repository Management System">
+    <meta name="author" content="-">
+
+    <!-- jQuery -->
+    <script src="/static/bower_components/jquery/jquery.min.js"></script>
+
+    <!-- The styles -->
+    <link id="bs-css" href="/static/css/bootstrap-cerulean.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-slate.min.css" rel="stylesheet">
+    <link href="/static/css/pms-app.css" rel="stylesheet">
+    <link href='/static/bower_components/fullcalendar/dist/fullcalendar.css' rel='stylesheet'>
+    <link href='/static/bower_components/fullcalendar/dist/fullcalendar.print.css' rel='stylesheet' media='print'>
+    <link href='/static/bower_components/chosen/chosen.min.css' rel='stylesheet'>
+    <link href='/static/bower_components/colorbox/example3/colorbox.css' rel='stylesheet'>
+    <link href='/static/bower_components/responsive-tables/responsive-tables.css' rel='stylesheet'>
+    <link href='/static/bower_components/bootstrap-tour/build/css/bootstrap-tour.min.css' rel='stylesheet'>
+    <link href='/static/css/jquery.noty.css' rel='stylesheet'>
+    <link href='/static/css/noty_theme_default.css' rel='stylesheet'>
+    <link href='/static/css/elfinder.min.css' rel='stylesheet'>
+    <link href='/static/css/elfinder.theme.css' rel='stylesheet'>
+    <link href='/static/css/jquery.iphone.toggle.css' rel='stylesheet'>
+    <link href='/static/css/uploadify.css' rel='stylesheet'>
+    <link href='/static/css/animate.min.css' rel='stylesheet'>
+
+    
+
+    <!-- The fav icon -->
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+
+</head>
+
+<body>
+    <!-- topbar starts -->
+    <div class="navbar navbar-default" role="navigation">
+
+        <div class="navbar-inner">
+            <button type="button" class="navbar-toggle pull-left animated flip">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'index' %}"> <img alt="PMS Logo" src="/static/img/logo2.png" class="hidden-xs"/>
+                <span>Project</span></a>
+
+
+            <ul class="collapse navbar-collapse nav navbar-nav top-menu">
+                    <form class="navbar-search pull-left" action = "{% url 'search' %}" method = "post">
+                        {% csrf_token %}
+                        <input placeholder="Search" class="search-query form-control col-md-10" name="search"
+                               type="text"/>
+                        <select id="category" name="category" style="color:black">
+                            <option name="student" value="student" style="color:black">Search by Student</option>
+                            <option name="project" value="project" style="color:black">Search by Project Name</option>
+                        </select>
+                    </form>
+               
+            </ul>
+
+
+
+            <!-- user dropdown starts -->
+            <div class="btn-group pull-right">
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs"> Student</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
+		            <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            </div>
+            <!-- user dropdown ends -->
+
+            <!-- theme selector starts -->
+            <div class="btn-group pull-right theme-container animated tada" style="display:none">
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <i class="glyphicon glyphicon-tint"></i><span
+                        class="hidden-sm hidden-xs"> Change Theme / Skin</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" id="themes">
+                    <li><a data-value="slate" href="#"><i class="whitespace"></i></a></li>
+                </ul>
+            </div>
+            <!-- theme selector ends -->
+
+        </div>
+    </div>
+    <!-- topbar ends -->
+	
+<div class="ch-container">
+    <div class="row">
+        
+        <!-- left menu starts -->
+        <div class="col-sm-2 col-lg-2">
+            <div class="sidebar-nav">
+                <div class="nav-canvas">
+                    <div class="nav-sm nav nav-stacked">
+
+                    </div>
+                    <ul class="nav nav-pills nav-stacked main-menu">
+                        
+                        <li><a class="ajax-link" href="{% url 'index' %}"><i class="glyphicon glyphicon-home"></i><span> Home</span></a>
+                        </li>
+                        <li><a class="ajax-link" href="{% url 'profile' %}"><i class="glyphicon glyphicon-eye-open"></i><span> Profile</span></a>
+                        </li>
+                        
+                        <li><a class="ajax-link" href="{% url 'getproject' %}"><i
+                                    class="glyphicon glyphicon-align-justify"></i><span> Projects</span></a></li>
+									
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--/span-->
+        <!-- left menu ends -->
+
+        <noscript>
+            <div class="alert alert-block col-md-12">
+                <h4 class="alert-heading">Warning!</h4>
+
+                <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a>
+                    enabled to use this site.</p>
+            </div>
+        </noscript>
+
+<div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-edit"></i> Project Request Form</h2>
+            </div>
+            <div class="box-content">
+                <script type="text/javascript">
+                    $(document).ready(function(){
+
+                        domains = {"CSE":["CCBD","KANOE","Ordell Ugo"],"ISE":["Social Computing","MSE"]};
+                        selectDept = $("#selectDept");
+                        selectDept.css("color","black");
+                        selectDomain = $("#selectDomain");
+
+                        selectDept.on("change",function(event){
+                            selectDomain.text("");
+                            dept = selectDept.val();
+                            depDomains = domains[dept];
+                            selectDomain.css("color","black");
+                            for(i=0;i<depDomains.length;i++)
+                            {
+                                option = $("<option>");
+                                option.text(depDomains[i]);
+                                option.css("color","black");
+                                selectDomain.append(option);
+                            }    
+
+                        });
+
+
+                        $('.stuForm').on("submit",function(event){
+                        event.preventDefault();
+                        var data = new FormData(this);
+                        $.ajax({
+                                url: "{% url 'stuFormSubmit'%}", // Url to which the request is send
+                                type: "POST",             // Type of request to be send, called as method
+                                data: data,
+                                contentType: false,       // The content type used when sending data to the server.
+                                cache: false,             // To unable request pages to be cached
+                                processData:false,        // To send DOMDocument or non processed data file it is set to false
+                                success: function(data){
+                                    alert(data);
+                                }
+                            });
+                    
+                        });
+
+                    });
+                   
+                </script>
+                <form role="form" action="" method="POST" class="stuForm"><br>
+                    {%csrf_token%}
+                    <div class="control-group">
+                            <label class="control-label" for="selectError">Choose a Department</label>
+                            <div class="controls">
+                                <select id="selectDept" name="dept">
+                                    <option style="color:black">Select Department</option>
+                                    <option value="CSE" style="color:black">CSE</option>
+                                    <option value="ISE" style="color:black">ISE</option>
+                                    <!--<option value="mech">Mech</option>
+                                    <option value="ece">ECE</option>
+                                    <option value="ee">EE</option>
+                                    <option value="bt">BT</option>
+                                    <option value="te">TE</option>-->
+                                </select>
+                            </div>
+                        </div>
+                
+        <hr>            
+                    
+                    <div class="control-group">
+                            <label for="selectError">Domain/Center</label>
+
+                            <div class="controls">
+                                <select id="selectDomain" name="domain">
+                                </select>
+                            </div>
+                        </div>
+                    
+                <div class="form-group">
+                                <label for="Credits">Credits</label>
+                                <input type="text" class="form-control"  placeholder="Enter no of credits" name="credits">
+                            </div>
+                
+                <div class="form-group">
+                                <label for="exampleInputFile">Enter CV (optional)</label>
+                                <input type="file" id="exampleInputFile" style="color:white">
+
+                            <hr>
+                <button type="submit" class="btn btn-default" align="right">Submit</button>
+        		          
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!--/span-->
+
+</div><!--/row-->
+</div>
+
+    <!-- Ad, you can remove it -->
+    <div class="row">
+               
+        </div>
+
+    
+    <!-- Ad ends -->
+
+    <hr>
+</div>
+
+    <footer class="row">
+        <p class="col-md-9 col-sm-9 col-xs-12 copyright">&copy; <a href="#" target="_blank">Copyright</a> 2015 - 2016</p>
+    </footer>
+
+</div><!--/.fluid-container-->
+
+<!-- external javascript -->
+
+<script src="/static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- library for cookie management -->
+<script src="/static/js/jquery.cookie.js"></script>
+<!-- calender plugin -->
+<script src='/static/bower_components/moment/min/moment.min.js'></script>
+<script src='/static/bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
+<!-- data table plugin -->
+<script src='/static/js/jquery.dataTables.min.js'></script>
+
+<!-- select or dropdown enhancer -->
+<script src="/static/bower_components/chosen/chosen.jquery.min.js"></script>
+<!-- plugin for gallery image view -->
+<script src="/static/bower_components/colorbox/jquery.colorbox-min.js"></script>
+<!-- notification plugin -->
+<script src="/static/js/jquery.noty.js"></script>
+<!-- library for making tables responsive -->
+<script src="/static/bower_components/responsive-tables/responsive-tables.js"></script>
+<!-- tour plugin -->
+<script src="/static/bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+<!-- star rating plugin -->
+<script src="/static/js/jquery.raty.min.js"></script>
+<!-- for iOS style toggle switch -->
+<script src="/static/js/jquery.iphone.toggle.js"></script>
+<!-- autogrowing textarea plugin -->
+<script src="/static/js/jquery.autogrow-textarea.js"></script>
+<!-- multiple file upload plugin -->
+<script src="/static/js/jquery.uploadify-3.1.min.js"></script>
+<!-- history.js for cross-browser state change on ajax -->
+<script src="/static/js/jquery.history.js"></script>
+<!-- application script for demo -->
+<script src="/static/js/pms.js"></script>
+
+
+</body>
+</html>
