@@ -15,7 +15,7 @@ Project Members:<br />
 10.) Ankur Kishore<br />
 11.) Anurag Patwary<br />
 <br />
-Project Repository Management System is a web application for students and teachers to work on projects, together,<br />
+Project Repository Management System is a web application for students and teachers to work on projects, together, 
 more effectively. Main features of the application include:<br />
 <br />
 1.) Repository to store files related to the project.<br />
