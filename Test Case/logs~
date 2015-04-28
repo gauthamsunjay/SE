@@ -1,0 +1,42 @@
+[info] Playing test case studentlogin
+[info] Executing: |open | /login/ | |
+[info] Executing: |type | id=username | aishwarya.jr@gmail.com |
+[info] Executing: |type | css=div.input-group.input-group-lg > #password | abcd |
+[info] Executing: |clickAndWait | css=input.btn.btn-primary | | 
+
+
+Teacher
+
+[info] Playing test case studentlogin
+[info] Executing: |open | /login/ | |
+[info] Executing: |clickAndWait | css=input.btn.btn-primary | |
+[info] Test case passed
+[info] Playing test case teachertest
+[info] Executing: |open | /login/ | |
+[info] Executing: |clickAndWait | css=input.btn.btn-primary | |
+[info] Executing: |clickAndWait | //li[3]/a/span | |
+[info] Executing: |type | id=id_file | /home/gautham/Desktop/SE-remain.docx |
+[info] Executing: |click | css=input[type="submit"] | |
+[info] Executing: |assertAlert | File Uploaded successfully! | |
+[error] There were no alerts
+[info] Test suite completed: 2 played
+[info] Playing test case studentlogin
+[info] Executing: |open | /login/ | |
+[info] Executing: |clickAndWait | css=input.btn.btn-primary | |
+[info] Test case passed
+[info] Playing test case teachertest
+[info] Executing: |open | /login/ | |
+[info] Executing: |clickAndWait | css=input.btn.btn-primary | |
+[info] Executing: |clickAndWait | //li[3]/a/span | |
+[info] Executing: |type | id=id_file | /home/gautham/Desktop/SE-remain.docx |
+[info] Executing: |click | css=input[type="submit"] | |
+[info] Executing: |assertAlert | File Uploaded successfully! | | 
+
+Guest
+[info] Playing test case guesttest
+[info] Executing: |open | /login/ | |
+[info] Executing: |clickAndWait | link=Click here to view projects. | |
+[info] Executing: |type | css=input[type="text"] | nitin |
+[info] Executing: |type | css=input[type="text"] | mse |
+[info] Executing: |type | css=input[type="text"] | kanoe |
+[info] Executing: |type | css=input[type="text"] | niti | 

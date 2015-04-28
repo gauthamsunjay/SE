@@ -1,0 +1,105 @@
+[info] Playing test case studentlogin
+[info] Executing: |open | /login/ | |
+[info] Executing: |type | id=username | aishwarya.jr@gmail.com |
+[info] Executing: |type | css=div.input-group.input-group-lg > #password | abcd |
+[info] Executing: |clickAndWait | css=input.btn.btn-primary | | 
+
+
+Teacher
+
+[info] Playing test case studentlogin
+[info] Executing: |open | /login/ | |
+[info] Executing: |clickAndWait | css=input.btn.btn-primary | |
+[info] Test case passed
+[info] Playing test case teachertest
+[info] Executing: |open | /login/ | |
+[info] Executing: |clickAndWait | css=input.btn.btn-primary | |
+[info] Executing: |clickAndWait | //li[3]/a/span | |
+[info] Executing: |type | id=id_file | /home/gautham/Desktop/SE-remain.docx |
+[info] Executing: |click | css=input[type="submit"] | |
+[info] Executing: |assertAlert | File Uploaded successfully! | |
+[error] There were no alerts
+[info] Test suite completed: 2 played
+[info] Playing test case studentlogin
+[info] Executing: |open | /login/ | |
+[info] Executing: |clickAndWait | css=input.btn.btn-primary | |
+[info] Test case passed
+[info] Playing test case teachertest
+[info] Executing: |open | /login/ | |
+[info] Executing: |clickAndWait | css=input.btn.btn-primary | |
+[info] Executing: |clickAndWait | //li[3]/a/span | |
+[info] Executing: |type | id=id_file | /home/gautham/Desktop/SE-remain.docx |
+[info] Executing: |click | css=input[type="submit"] | |
+[info] Executing: |assertAlert | File Uploaded successfully! | | 
+
+Guest
+[info] Playing test case guesttest
+[info] Executing: |open | /login/ | |
+[info] Executing: |clickAndWait | link=Click here to view projects. | |
+[info] Executing: |type | css=input[type="text"] | nitin |
+[info] Executing: |type | css=input[type="text"] | mse |
+[info] Executing: |type | css=input[type="text"] | kanoe |
+[info] Executing: |type | css=input[type="text"] | niti | 
+
+
+JR
+
+    [info] Playing test case jrstudent
+    [info] Executing: |open | /login/ | |
+    [info] Executing: |clickAndWait | css=input.btn.btn-primary | |
+    [info] Executing: |clickAndWait | css=a.well.top-block > div | |
+    [info] Executing: |select | id=selectDept | label=CSE |
+    [info] Executing: |select | id=selectDomain | label=KANOE |
+    [info] Executing: |type | name=credits | 2 |
+    [info] Executing: |click | css=div.form-group > button.btn.btn-default | |
+    [info] Executing: |assertAlert | Your response was recorded! | |
+    [error] There were no alerts
+    [error] current test case not found
+    [info] Test suite completed: 1 played, 1 failed
+    [info] Playing test case jrstudent
+    [info] Executing: |open | /login/ | |
+    [info] Executing: |clickAndWait | css=input.btn.btn-primary | |
+    [info] Executing: |clickAndWait | css=a.well.top-block > div | |
+    [info] Executing: |select | id=selectDept | label=CSE |
+    [info] Executing: |select | id=selectDomain | label=KANOE |
+    [info] Executing: |type | name=credits | 2 |
+    [info] Executing: |click | css=div.form-group > button.btn.btn-default | |
+    [info] Executing: |assertAlert | Your response was recorded! | |
+    [error] There were no alerts
+    [error] current test case not found
+    [info] Test suite completed: 1 played, 1 failed
+    [info] Playing test case jrstudent
+    [info] Executing: |open | /login/ | |
+    [info] Executing: |clickAndWait | css=input.btn.btn-primary | |
+    [info] Executing: |clickAndWait | css=a.well.top-block > div | |
+    [info] Executing: |select | id=selectDept | label=CSE |
+    [info] Executing: |select | id=selectDomain | label=KANOE |
+    [info] Executing: |type | name=credits | 2 |
+    [info] Executing: |click | css=div.form-group > button.btn.btn-default | |
+    [info] Executing: |assertAlert | Your response was recorded! | |
+    [info] Executing: |clickAndWait | //li[2]/a/span | |
+    [info] Executing: |clickAndWait | //li[3]/a/span | |
+    [info] Executing: |click | link=Keep Safe App | |
+    [info] Executing: |click | css=i.glyphicon.glyphicon-cloud | |
+    [info] Executing: |click | //div[@id='myModal']/div/div/div[3]/a/i | |
+    [info] Executing: |typeAndWait | name=search | keep |
+    [error] Timed out after 30000ms
+    [info] Executing: |type | name=search | |
+    [info] Executing: |clickAndWait | xpath=(//a[contains(@href, '/profile')])[2] | |
+    [info] Executing: |clickAndWait | link=Dashboard | |
+    [info] Executing: |answerOnNextPrompt | https://github.com/dharamsitejas | |
+    [info] Executing: |click | css=#gitRepo > div | |
+    [info] Executing: |assertPrompt | You can give us your Github link and we'll redirect you there when you click this button! | |
+    [info] Executing: |clickAndWait | //div[@id='content']/div/div[2]/a/div | |
+    [info] Executing: |clickAndWait | xpath=(//a[contains(@href, '/profile')])[2] | |
+    [info] Executing: |clickAndWait | link=Projects | |
+    [info] Executing: |type | id=id_file | /home/gautham/Desktop/SE-remain.docx |
+    [info] Executing: |click | css=input[type="submit"] | |
+    [info] Executing: |assertAlert | File Uploaded successfully! | |
+    [info] Executing: |click | link=Lattice Demo | |
+    [info] Executing: |click | id=repo | |
+    [info] Executing: |click | id=gitRepo | |
+    [info] Executing: |click | link=Lattice Demo | |
+    [info] Executing: |click | id=gitRepo | |
+    [error] current test case not found
+    [info] Test suite completed: 1 played, 1 failed 
